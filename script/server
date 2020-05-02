@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+# Colors for error/success messages
+RED="\033[0;31m"
+NC="\033[0m" # No color
+
+NPM_INSTALL="npm install"
+
+( $NPM_INSTALL )
+
+NPM_START_DEV="./node_modules/gatsby/dist/bin/gatsby.js develop -H 0.0.0.0"
+
+
+( $NPM_START_DEV )
+
+
+true # exit happily if all went well

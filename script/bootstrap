@@ -1,0 +1,23 @@
+#!/bin/bash
+
+PORT=8000
+
+ if [ $(docker ps -aqf "name=brian-blog") ]; then
+    DOCKER_REMOVE="docker rm -f brian-blog"
+    eval $DOCKER_REMOVE
+fi
+
+
+  DOCKER_RUN="docker run  \
+    -p $PORT:$PORT \
+    -v ~/Documents/apps/brian-blog:/app \
+    --name brian-blog \
+    brianalan/brian-blog:latest"
+
+
+  eval $DOCKER_RUN
+
+
+
+  echo -e "Success! brian-blog is up and running..."
+

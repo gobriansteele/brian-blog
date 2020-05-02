@@ -1,0 +1,13 @@
+FROM node:lts
+
+WORKDIR /app
+
+COPY . /app
+
+RUN chmod 755 ./script/server  
+
+RUN npm install 
+
+EXPOSE 8000
+
+ENTRYPOINT ./script/server
